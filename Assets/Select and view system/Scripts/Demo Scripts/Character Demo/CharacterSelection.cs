@@ -2,10 +2,16 @@ using UnityEngine;
 
 public class CharacterSelection : MonoBehaviour
 {
-    [SerializeField] private CharacterSelectionUI characterSelectionUI;
+    [SerializeField] private string characterSelectionUIPrefabPath = "UI/Character Selection UI";
+    private CharacterSelectionUI characterSelectionUI;
     private GameObject selectedCharacter;
     private CharacterDataContainer characterDataContainer;
-    private CrossPlatformInputHandler crossPlatformInputHandler;
+    private IInputHandler crossPlatformInputHandler;
+    
+    void Awake()
+    {
+        characterSelectionUI = Instantiate(Resources.Load<CharacterSelectionUI>(characterSelectionUIPrefabPath));
+    }
 
     private void Start()
     {

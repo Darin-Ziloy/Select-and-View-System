@@ -2,8 +2,14 @@ using UnityEngine;
 
 public class LocationSelection : MonoBehaviour
 {
-    public LocationSelectionUI LocationUI;
+    [SerializeField] private string locationSelectionUiPrefabPath = "UI/Location Selection UI";
+    private LocationSelectionUI LocationUI;
     private LocationDataContainer locationDataContainer;
+
+    void Awake()
+    {
+        LocationUI = Instantiate(Resources.Load<LocationSelectionUI>(locationSelectionUiPrefabPath));
+    }
 
     private void Start()
     {
