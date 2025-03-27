@@ -1,7 +1,7 @@
 using UnityEngine;
 using System;
 
-public class CrossPlatformInputHandler
+public class CrossPlatformInputHandler : IInputHandler
 {
     public event Action<Vector2> OnInputDirection;
 
